@@ -1,0 +1,83 @@
+// $primary-color: rgb(12, 55, 112);
+// $primary-color: #050A30;
+$primary-color: rgb(11, 12, 59);
+$secondary-color: #FF6501;
+// $secondary-color: #DC7726;
+$border-color:#004D3A;
+$show-home-image: true;
+$home-image: url(../images/background.jpg);
+$background-opacity: 0.9;
+
+@font-face {
+    font-family: Besom;
+    src: url("../fonts/Besom-free-font.otf") format("opentype");
+}
+
+@mixin easeOut {
+    transition: all 0.7s ease-out;
+}
+
+@mixin background {
+    @if $show-home-image {
+        &#bg-img {
+            background: $home-image;
+            background-color: #000;
+            background-attachment: fixed;
+            background-size: contain;
+            background-repeat: no-repeat;
+
+            background-position: center;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background: rgba($primary-color, $background-opacity);
+            }
+        }
+    }
+}
+
+// text color funcitno
+// this will prevent text from being unreadable if I use certain background colors, etc
+@function set-text-color($color) {
+    @if (lightness($color) > 40) {
+        @return #000;
+    }
+
+    @else {
+        @return #F5F7ED;
+    }
+}
+
+// media queries (mixin)
+@mixin mediaSm {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+// med
+@mixin mediaMd {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+// large
+@mixin mediaLg {
+    @media screen and (min-width: 769px) and (max-width: 1170px) {
+        @content;
+    }
+}
+
+// extra large
+@mixin mediaXl {
+    @media screen and (min-width: 1171px) {
+        @content;
+    }
+}

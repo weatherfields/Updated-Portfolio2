@@ -1,0 +1,349 @@
+@font-face {
+  font-family: Besom;
+  src: url("../fonts/Besom-free-font.otf") format("opentype"); }
+
+.menu-btn {
+  position: absolute;
+  z-index: 4;
+  right: 35px;
+  top: 35px;
+  cursor: pointer;
+  transition: all 0.7s ease-out; }
+  .menu-btn .btn-line {
+    width: 28px;
+    height: 3px;
+    margin: 0 0 5px 0;
+    background: #F5F7ED;
+    transition: all 0.7s ease-out; }
+    .menu-btn .btn-line:nth-child(4) {
+      opacity: 0; }
+  .menu-btn.close {
+    transform: rotate(540deg);
+    top: 24px;
+    right: 30px; }
+    .menu-btn.close .btn-line:nth-child(1) {
+      transform: rotate(90deg) translate(5px, 8px); }
+    .menu-btn.close .btn-line:nth-child(2) {
+      transform: rotate(0deg) translate(6px, 10px); }
+    .menu-btn.close .btn-line:nth-child(3) {
+      transform: rotate(-90deg) translate(11px, 20px); }
+    .menu-btn.close .btn-line:nth-child(4) {
+      transform: rotate(0deg) translate(6px, -32px);
+      opacity: 1; }
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  visibility: hidden; }
+  .menu.show {
+    visibility: visible; }
+  .menu-branding, .menu-nav {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden; }
+  .menu-nav {
+    margin: 0;
+    padding: 0;
+    background: #060721;
+    list-style: none;
+    transform: translate3d(0, -100%, 0);
+    transition: all 0.7s ease-out; }
+    .menu-nav.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-branding {
+    background: #0b0c3b;
+    transition: all 0.7s ease-out;
+    transform: translate3d(0, 100%, 0); }
+    .menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+    .menu-branding .my-image {
+      width: 400px;
+      height: 400px;
+      background: url(../images/me-adams-BW-smallsized.jpg);
+      background-size: cover;
+      border-radius: 10%;
+      border: solid 3px #004D3A; }
+  .menu .nav-item {
+    transform: translate3d(600px, 0, 0);
+    transition: all 0.7s ease-out; }
+    .menu .nav-item.show {
+      transform: translate3d(0, 0, 0); }
+    .menu .nav-item.current > a {
+      color: #FF6501; }
+  .menu .nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 1rem 0;
+    font-weight: 300;
+    color: #F5F7ED;
+    text-decoration: none;
+    transition: all 0.7s ease-out; }
+    .menu .nav-link:hover {
+      color: #04c55b; }
+
+.nav-item:nth-child(1) {
+  transition-delay: 0.1s; }
+
+.nav-item:nth-child(2) {
+  transition-delay: 0.2s; }
+
+.nav-item:nth-child(3) {
+  transition-delay: 0.3s; }
+
+.nav-item:nth-child(4) {
+  transition-delay: 0.4s; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  background: #0b0c3b;
+  color: #F5F7ED;
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5; }
+  body#bg-img {
+    background: url(../images/background.jpg);
+    background-color: #000;
+    background-attachment: fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; }
+    body#bg-img:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: rgba(11, 12, 59, 0.9); }
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400; }
+  h1.lg-heading,
+  h2.lg-heading,
+  h3.lg-heading {
+    font-size: 4.9rem; }
+  h1.sm-heading,
+  h2.sm-heading,
+  h3.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: rgba(13, 14, 68, 0.5); }
+
+.small-text {
+  font-size: .9em; }
+
+a {
+  color: #F5F7ED;
+  text-decoration: none; }
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%; }
+
+.text-secondary {
+  color: #FF6501; }
+
+main {
+  padding: 4rem;
+  min-height: calc(100vh - 60px); }
+  main .icons {
+    margin-top: 1rem; }
+    main .icons a {
+      padding: 0.4rem;
+      transition: all 0.7s ease-out; }
+      main .icons a:hover {
+        color: #05d362; }
+  main#home {
+    overflow: hidden; }
+    main#home h1 {
+      margin-top: 20vh; }
+
+.p-bio {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1em; }
+
+.about-info {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas: 'bioimage bio bio bio' 'bioimage1 bio bio bio';
+  grid-template-columns: repeat(4, 2fr); }
+
+.bio-image,
+.bio-image1 {
+  grid-area: bioimage;
+  height: 300px;
+  max-width: 300px;
+  margin: inherit;
+  margin-top: 24px;
+  border-radius: 20%;
+  border: #004D3A 3px solid; }
+
+.bio {
+  grid-area: bio; }
+
+#redface {
+  width: 20vh;
+  border: 3px #F5F7ED solid;
+  border-radius: 15%; }
+
+.projects {
+  display: grid;
+  grid-gap: 0.7rem;
+  grid-template-columns: repeat(3, 1fr); }
+  .projects img {
+    width: 100%;
+    border: 3px #F5F7ED solid;
+    border-radius: 15%; }
+    .projects img:hover {
+      opacity: 0.5;
+      border-color: #FF6501;
+      transition: all 0.7s ease-out; }
+
+h5 {
+  text-align: center;
+  color: #FF6501;
+  line-height: 1; }
+
+.box-inputs {
+  color: #FF6501; }
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem; }
+  .boxes div {
+    font-size: 2rem;
+    border: 3px #F5F7ED solid;
+    border-radius: 50%;
+    padding: 2rem 3rem;
+    margin-bottom: 3rem;
+    transition: all 0.7s ease-out; }
+    .boxes div:hover {
+      padding: 0.5rem 1.5rem;
+      background: #FF6501;
+      color: #000; }
+      .boxes div:hover span {
+        color: #000; }
+
+#contact-page-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; }
+
+.btn, .btn-dark, .btn-tube, .btn-res, .btn-light {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px #474747 solid;
+  margin-bottom: 0.3rem;
+  border-radius: 20%; }
+  .btn:hover, .btn-dark:hover, .btn-tube:hover, .btn-res:hover, .btn-light:hover {
+    background: #FF6501;
+    color: set-text-color #FF6501; }
+
+.btn-dark {
+  background: black;
+  color: #F5F7ED; }
+
+.btn-tube {
+  border: 1px #F5F7ED solid;
+  background: #c4302b;
+  color: #F5F7ED; }
+  .btn-tube:hover {
+    background: #f8413a;
+    color: set-text-color #FF6501; }
+
+.btn-res {
+  border: 1px #F5F7ED solid;
+  background: #051537;
+  color: #F5F7ED; }
+  .btn-res:hover {
+    background: #0458AB;
+    color: set-text-color #FF6501; }
+
+.btn-light {
+  background-color: #004D3A;
+  color: #F5F7ED; }
+
+.form {
+  max-width: 33.33%;
+  background-color: #121462;
+  padding: 20px;
+  border: 1px #FF6501 solid; }
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #004D3A;
+  color: #F5F7ED;
+  height: 60px; }
+
+@media screen and (min-width: 1171px) {
+  .projects {
+    grid-template-columns: repeat(4, 1fr); }
+  .my-image {
+    width: -webkit-fill-available; } }
+
+@media screen and (min-width: 769px) and (max-width: 1170px) {
+  .projects {
+    grid-template-columns: repeat(3, 1fr); }
+  .my-image {
+    width: -webkit-fill-available; } }
+
+@media screen and (max-width: 768px) {
+  main {
+    align-items: center;
+    text-align: center; }
+    main .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem; }
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0; }
+    ul.menu-nav.show,
+    div.menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    height: 75vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 24px; }
+  .menu-branding {
+    height: 25vh;
+    transform: translate3d(100%, 0, 0); }
+    .menu-branding .my-image {
+      width: -webkit-fill-available;
+      background: url(../images/me-adams-BW-smallest.jpg);
+      background-repeat: no-repeat;
+      width: 200px;
+      height: 200px; }
+  .about-info {
+    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-columns: 1fr; }
+  .projects {
+    grid-template-columns: repeat(2, 1fr); } }
+
+@media screen and (max-width: 480px) {
+  .projects {
+    grid-template-columns: 1fr; }
+  main#home h1 {
+    margin-top: 10vh; } }
